@@ -1,0 +1,48 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>register</title>
+  </head>
+  <body>
+     <!-- Registration Modal -->
+    <div id="registerModal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Register Account</h3>
+                <span class="close-cart" onclick="toggleRegisterForm()">&times;</span>
+            </div>
+            <div class="cart-items">
+                <form id="registerForm" onsubmit="submitRegistration(event)">
+                    <div style="margin-bottom: 1rem;">
+                        <label for="fullName" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Full Name:</label>
+                        <input type="text" id="fullName" name="fullName" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Email:</label>
+                        <input type="email" id="email" name="email" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="phone" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="98765 43210" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="password" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Password:</label>
+                        <input type="password" id="password" name="password" minlength="6" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label for="confirmPassword" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Confirm Password:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 5px;">
+                    </div>
+                </form>
+            </div>
+            <div class="cart-footer">
+                <button class="checkout-btn" onclick="submitRegistration(event)" form="registerForm">Register</button>
+            </div>
+        </div>
+    </div>
+ </body>
+   <script src="script.js"></script>
+  </html>
