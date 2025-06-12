@@ -1,3 +1,5 @@
+
+// Plant data
 const plants = [
     {
         id: 1,
@@ -225,6 +227,55 @@ function toggleCart() {
     }
 }
 
+// Show/hide registration modal
+function showRegisterForm() {
+    const registerModal = document.getElementById('registerModal');
+    registerModal.style.display = 'block';
+}
+
+function toggleRegisterForm() {
+    const registerModal = document.getElementById('registerModal');
+    const isVisible = registerModal.style.display === 'block';
+    
+    if (isVisible) {
+        registerModal.style.display = 'none';
+    } else {
+        registerModal.style.display = 'block';
+    }
+}
+
+// Submit registration form
+function submitRegistration(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(document.getElementById('registerForm'));
+    const fullName = formData.get('fullName');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    const password = formData.get('password');
+    const confirmPassword = formData.get('confirmPassword');
+    
+    // Validate phone number (Indian format)
+    const phoneRegex = /^[6-9]\d{9}$/;
+    if (!phoneRegex.test(phone)) {
+        alert('Please enter a valid Indian phone number (10 digits starting with 6-9)');
+        return;
+    }
+    
+    // Validate password match
+    if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+    }
+    
+    // Simulate registration success
+    alert(`Welcome to Green Haven Nursery, ${fullName}!\n\nYour account has been created successfully.\nEmail: ${email}\nPhone: +91 ${phone}`);
+    
+    // Reset form and close modal
+    document.getElementById('registerForm').reset();
+    toggleRegisterForm();
+}
+
 // Update cart modal content
 function updateCartModal() {
     const cartItems = document.getElementById('cartItems');
@@ -318,11 +369,17 @@ function showAddToCartFeedback() {
     }, 2000);
 }
 
-// Close cart when clicking outside
+// Close modals when clicking outside
 document.addEventListener('click', function(event) {
     const cartModal = document.getElementById('cartModal');
+    const registerModal = document.getElementById('registerModal');
+    
     if (event.target === cartModal) {
         toggleCart();
+    }
+    
+    if (event.target === registerModal) {
+        toggleRegisterForm();
     }
 });
 
