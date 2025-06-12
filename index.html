@@ -3,9 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Green Haven Nursery</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>gopi</h1>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-seedling"></i>
+                <h1>Green Haven Nursery</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#plants">Plants</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Welcome to Your Garden Paradise</h2>
+                <p>Discover the finest collection of plants, flowers, and gardening supplies</p>
+                <button class="cta-button" onclick="scrollToPlants()">Explore Plants</button>
+            </div>
+        </section>
+
+        <section id="plants" class="plants-section">
+            <h2>Our Plant Collection</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterPlants('all')">All Plants</button>
+                <button class="filter-btn" onclick="filterPlants('flowers')">Flowers</button>
+                <button class="filter-btn" onclick="filterPlants('trees')">Trees</button>
+                <button class="filter-btn" onclick="filterPlants('herbs')">Herbs</button>
+                <button class="filter-btn" onclick="filterPlants('succulents')">Succulents</button>
+            </div>
+            <div class="plants-grid" id="plantsGrid">
+                <!-- Plants will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <h2>About Green Haven Nursery</h2>
+                <p>For over 25 years, Green Haven Nursery has been your trusted partner in creating beautiful gardens. We specialize in high-quality plants, expert advice, and sustainable gardening practices.</p>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Quality Plants</h3>
+                        <p>Hand-selected, healthy plants from trusted growers</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <h3>Expert Advice</h3>
+                        <p>Professional guidance for all your gardening needs</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-recycle"></i>
+                        <h3>Eco-Friendly</h3>
+                        <p>Sustainable practices and organic options</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Visit Our Nursery</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>123 Garden Lane, Green Valley, CA 95436</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+91 98765 43210</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <p>Mon-Sat: 8AM-6PM, Sun: 9AM-5PM</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Shopping Cart</h3>
+                <span class="close-cart" onclick="toggleCart()">&times;</span>
+            </div>
+            <div id="cartItems" class="cart-items">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <strong>Total: ₹<span id="cartTotal">0</span></strong>
+                </div>
+                <button class="checkout-btn" onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Green Haven Nursery. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
