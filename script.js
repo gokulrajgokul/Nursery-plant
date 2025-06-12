@@ -276,6 +276,55 @@ function submitRegistration(event) {
     toggleRegisterForm();
 }
 
+// Show/hide login modal
+function showLoginForm() {
+    const loginModal = document.getElementById('loginModal');
+    loginModal.style.display = 'block';
+}
+
+function toggleLoginForm() {
+    const loginModal = document.getElementById('loginModal');
+    const isVisible = loginModal.style.display === 'block';
+    
+    if (isVisible) {
+        loginModal.style.display = 'none';
+    } else {
+        loginModal.style.display = 'block';
+    }
+}
+
+// Submit login form
+function submitLogin(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(document.getElementById('loginForm'));
+    const email = formData.get('loginEmail');
+    const password = formData.get('loginPassword');
+    
+    // Simulate login validation
+    if (email && password) {
+        // Simulate successful login
+        alert(`Welcome back!\n\nYou have successfully logged in to your Green Haven Nursery account.\nEmail: ${email}`);
+        
+        // Reset form and close modal
+        document.getElementById('loginForm').reset();
+        toggleLoginForm();
+    } else {
+        alert('Please enter both email and password.');
+    }
+}
+
+// Switch from login to register modal
+function switchToRegister() {
+    toggleLoginForm();
+    showRegisterForm();
+}
+
+// Show forgot password alert
+function showForgotPassword() {
+    alert('Password reset functionality coming soon!\n\nFor now, please contact us at +91 98765 43210 for assistance with your account.');
+}
+
 // Update cart modal content
 function updateCartModal() {
     const cartItems = document.getElementById('cartItems');
@@ -373,6 +422,7 @@ function showAddToCartFeedback() {
 document.addEventListener('click', function(event) {
     const cartModal = document.getElementById('cartModal');
     const registerModal = document.getElementById('registerModal');
+    const loginModal = document.getElementById('loginModal');
     
     if (event.target === cartModal) {
         toggleCart();
@@ -380,6 +430,10 @@ document.addEventListener('click', function(event) {
     
     if (event.target === registerModal) {
         toggleRegisterForm();
+    }
+    
+    if (event.target === loginModal) {
+        toggleLoginForm();
     }
 });
 
