@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Haven Nursery</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-seedling"></i>
+                <h1>Green Heaven Nursery</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#plants">Plants</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#register" onclick="showRegisterForm()">Register</a>
+                <a href="#login" onclick="showLoginForm()">Login</a>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+   {% block content %}
+
+   {% endblock %}
+
+    <footer>
+        <p>&copy; 2024 Green Haven Nursery. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
