@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
-
-  {% block content %}
- <section id="home" class="hero">
-            <div class="hero-content">
-                <h2>Welcome to Your Garden Paradise</h2>
-                <p>Discover the finest collection of plants, flowers, and gardening supplies</p>
-                <button class="cta-button" onclick="scrollToPlants()">Explore Plants</button>
-            </div>
-        </section>
-   {% endblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block content %}
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h2>Welcome to Your Garden Paradise</h2>
+        <p>Discover the finest collection of plants, flowers, and gardening supplies</p>
+        <a href="{% url 'plants' %}">Explores Plants</a>
+    </div>
+</section>
+{% endblock %}

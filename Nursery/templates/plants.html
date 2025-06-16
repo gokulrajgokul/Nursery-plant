@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="plants" class="plants-section">
+    <h2>Our Plant Collection</h2>
+    <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterPlants('all')">All Plants</button>
+        <button class="filter-btn" onclick="filterPlants('flowers')">Flowers</button>
+        <button class="filter-btn" onclick="filterPlants('trees')">Trees</button>
+        <button class="filter-btn" onclick="filterPlants('herbs')">Herbs</button>
+        <button class="filter-btn" onclick="filterPlants('succulents')">Succulents</button>
+    </div>
+    <div class="plants-grid" id="plantsGrid">
+        <!-- Plants will be populated by JavaScript -->
+    </div>
+
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
