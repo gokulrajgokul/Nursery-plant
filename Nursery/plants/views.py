@@ -15,7 +15,7 @@ def about(request):
 def contact(request):
     return render(request,'contact.html')
 
-def login(request):
+def signin(request):
     if request.method == 'POST':
         username = request.POST.get('loginUsername')
         password = request.POST.get('loginPassword')
@@ -34,7 +34,7 @@ def login(request):
             return redirect('home')  # Change to your home/dashboard URL name
         else:
             messages.error(request, "Invalid Username or Password!")
-            return redirect('login')
+            return redirect('signin')
     return render(request,'login.html')
 
 # def loginpage(request):
@@ -99,6 +99,6 @@ def register(request):
         user.save()
         
         messages.success(request, "Your account has been created successfully!")
-        return redirect('login')
+        return redirect('signin')
 
     return render(request,'register.html')
