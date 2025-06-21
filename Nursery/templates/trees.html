@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+     <div class="filter-buttons">
+        <a href="/flowers" class="filter-btn">Flowers</a>
+        <a href="/trees" class="filter-btn">Trees</a>
+        <a href="/herbs" class="filter-btn">Herbs</a>
+        <a href="/succulents" class="filter-btn">Succulents</a>
+    </div>
+    <h2 class="mb-4">Our Trees Collection 🌳</h2>
+
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <p class="card-text"><strong>Price:</strong> ₹{{ product.price }}</p>
+                        <p class="card-text"><strong>Stock:</strong> {{ product.stock }}</p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No Trees products found.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

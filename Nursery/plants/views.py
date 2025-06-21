@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
+from .models import Category, Product
+
 
 def home(request):
     return render(request,'home.html')
@@ -102,3 +104,30 @@ def register(request):
         return redirect('signin')
 
     return render(request,'register.html')
+
+
+
+
+
+
+
+
+def flowers_view(request):
+    try:
+        flower_category = Category.objects.get(name__iexact="Flowers")  #  not case-sensitive
+        flower_products = Product.objects.filter(category=flower_category)
+    except Category.DoesNotExist:
+        flower_products = []
+
+    return render(request, 'flowers.html', {'products': flower_products})
+
+
+
+def trees_view(request):
+    try:
+        tree_category = Category.objects.get(name__iexact="trees")
+        tree_products = Product.objects.filter(category=tree_category)
+    except Category.DoesNotExist:
+        tree_products = []
+
+    return render(request, 'trees.html', {'products': tree_products})
