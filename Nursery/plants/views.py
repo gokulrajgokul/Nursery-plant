@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import Category, Product
 
+def frontpage(request):
+    return render(request,'frontpage.html')
 
 def home(request):
     return render(request,'home.html')
@@ -38,29 +40,9 @@ def signin(request):
             messages.error(request, "Invalid Username or Password!")
             return redirect('signin')
     return render(request,'login.html')
-
-# def loginpage(request):
-#     if request.method == 'POST':
-#         username = request.POST.get('name').lower()
-#         password = request.POST.get('password')
-
-#         if not username or not password:
-#             messages.error(request, "Both fields are required!")
-#             return redirect('signup')
-
-#         user = authenticate(username=username, password=password)
-#         if user is not None:
-#             login(request, user)
-#             return redirect('homepage')
-#         else:
-#             messages.error(request, "Invalid username or password!")
-#     return render(request, 'signup.html')
         
-# def logoutpage(request):
-#     logout(request)
-#     return redirect('login')
-
-
+def logout(request):
+    return redirect('signin')
 
 def register(request):
     if request.method == 'POST':
@@ -70,11 +52,9 @@ def register(request):
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirmPassword')
         
-
         if not full_name or not email or not phone or not password or not confirm_password:
             messages.error(request, "All fields are required!")
             return redirect('register')
-        
         
         if User.objects.filter(username=full_name).exists():
             messages.error(request, "username is already registered!")
@@ -96,7 +76,6 @@ def register(request):
             messages.error(request, "Passwords do not match!")
             return redirect('register')  
         
-        
         user = User.objects.create_user(username=full_name, email=email, password=password)
         user.save()
         
@@ -104,13 +83,6 @@ def register(request):
         return redirect('signin')
 
     return render(request,'register.html')
-
-
-
-
-
-
-
 
 def flowers_view(request):
     try:
@@ -121,8 +93,6 @@ def flowers_view(request):
 
     return render(request, 'flowers.html', {'products': flower_products})
 
-
-
 def trees_view(request):
     try:
         tree_category = Category.objects.get(name__iexact="trees")
@@ -132,8 +102,6 @@ def trees_view(request):
 
     return render(request, 'trees.html', {'products': tree_products})
 
-
-
 def herbs_view(request):
     try:
         herbs_category = Category.objects.get(name__iexact="herbs")
@@ -142,7 +110,6 @@ def herbs_view(request):
         herbs_products = []
 
     return render(request, 'herbs.html', {'products': herbs_products})
-
 
 def accessories_view(request):
     try:

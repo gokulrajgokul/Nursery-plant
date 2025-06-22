@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Green Nursery</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .overlay {
+            position: relative;
+            text-align: center;
+            color: rgb(255, 255, 255);
+        }
+
+        .overlay img {
+            width: 100%;
+            height: 723px;
+            object-fit: cover;
+            filter: brightness(60%);
+        }
+
+        .tagline {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .description {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .btn-custom {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #388E3C;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <img src="{% static 'images/bg.png' %}" alt="Welcome Image">
+        
+        <div class="tagline">Where Green Dreams Grow!</div>
+        
+        <div class="description">
+            Step into a world of fresh blooms, lush greenery, and nature’s peace.<br>
+            From vibrant flowering plants to soothing indoor greens,<br>
+            we nurture every leaf with love. Let’s grow together, naturally.
+        </div>
+        
+        <a href="{% url 'register' %}" class="btn-custom">Let’s Get Gardening</a>
+    </div>
+</body>
+</html>

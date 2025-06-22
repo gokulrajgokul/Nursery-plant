@@ -23,14 +23,12 @@
                 <a href="{% url 'plants' %}">Plants</a>
                 <a href="{% url 'about' %}">About</a>
                 <a href="{% url 'contact' %}">Contact</a>
-                <a href="{% url 'register' %}">Register</a>
-                <a href="{% url 'signin' %}">Login</a>
-              
+                <a href="{% url 'logout' %}">Logout</a>          
             </div>
         </nav>
     </header>
     {% block content %}
-
+    
     {% endblock %}
     <footer>
         <p>&copy; 2024 Green Haven Nursery. All rights reserved.</p>

@@ -1,48 +1,45 @@
- {% extends 'base.html' %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-{% block content %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
 
+{% block content %}
 <div class="container" style="max-width: 500px; margin-top: 50px;">
-    <h2 class="text-center mb-4">Register Account</h2>
+    <h2 class="text-center mb-4 text-success">🌿 Create Your Garden Account</h2>
 
     {% include 'messages.html' %}
 
     <form method="post" action="{% url 'register' %}">
-      {% csrf_token %}
+        {% csrf_token %}
 
-      <div class="mb-3">
-        <label for="fullName" class="form-label">Full Name:</label>
-        <input type="text" id="fullName" name="fullName" required class="form-control">
-      </div>
+        <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required class="form-control" placeholder="e.g. Asha Green">
+        </div>
 
-      <div class="mb-3">
-        <label for="email" class="form-label">Email:</label>
-        <input type="email" id="email" name="email" required class="form-control">
-      </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email Address:</label>
+            <input type="email" id="email" name="email" required class="form-control" placeholder="e.g. greenlover@example.com">
+        </div>
 
-      <div class="mb-3">
-        <label for="phone" class="form-label">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="9876543210" required class="form-control">
-      </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="e.g. 9876543210" required class="form-control">
+        </div>
 
-      <div class="mb-3">
-        <label for="password" class="form-label">Password:</label>
-        <input type="password" id="password" name="password" minlength="6" required class="form-control">
-      </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" id="password" name="password" minlength="6" required class="form-control" placeholder="Minimum 6 characters">
+        </div>
 
-      <div class="mb-3">
-        <label for="confirmPassword" class="form-label">Confirm Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required class="form-control">
-      </div>
+        <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required class="form-control">
+        </div>
 
-      <button type="submit" class="btn btn-success w-100">Register</button>
+        <button type="submit" class="btn btn-success w-100">🌱 Start Growing</button>
 
-      <div class="text-center mt-3">
-        <p>Already have an account? <a href="{% url 'signin' %}" class="fw-bold text-success">Login here</a></p>
-      </div>
-
+        <div class="text-center mt-3">
+            <p>Already part of the garden? <a href="{% url 'signin' %}" class="fw-bold text-success">Login here</a></p>
+        </div>
     </form>
-  </div>
-
+</div>
 {% endblock %}

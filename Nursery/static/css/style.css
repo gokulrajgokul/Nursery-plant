@@ -53,37 +53,11 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
+    margin-right: 20px;
 }
 
 .nav-links a:hover {
     color: #90EE90;
-}
-
-.cart-icon {
-    position: relative;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: transform 0.3s;
-}
-
-.cart-icon:hover {
-    transform: scale(1.1);
-}
-
-.cart-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: #ff4757;
-    color: white;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bold;
 }
 
 /* Hero Section */
@@ -225,22 +199,6 @@ body {
     margin-bottom: 1rem;
 }
 
-.add-to-cart-btn {
-    background: #4a7c59;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    cursor: pointer;
-    width: 100%;
-    font-weight: 500;
-    transition: background 0.3s;
-}
-
-.add-to-cart-btn:hover {
-    background: #2d5a27;
-}
-
 /* About Section */
 .about-section {
     background: #f8f9fa;
@@ -318,89 +276,6 @@ body {
 .contact-item i {
     font-size: 1.5rem;
     color: #90EE90;
-}
-
-/* Cart Modal */
-.cart-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 2000;
-}
-
-.cart-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    width: 90%;
-    max-width: 500px;
-    max-height: 80vh;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.cart-header {
-    background: #4a7c59;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.close-cart {
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.cart-items {
-    padding: 1rem;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-    border-bottom: 1px solid #eee;
-}
-
-.cart-item:last-child {
-    border-bottom: none;
-}
-
-.cart-footer {
-    padding: 1rem;
-    border-top: 1px solid #eee;
-}
-
-.cart-total {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-}
-
-.checkout-btn {
-    background: #4a7c59;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 25px;
-    cursor: pointer;
-    width: 100%;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.checkout-btn:hover {
-    background: #2d5a27;
 }
 
 /* Footer */
