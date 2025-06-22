@@ -131,3 +131,24 @@ def trees_view(request):
         tree_products = []
 
     return render(request, 'trees.html', {'products': tree_products})
+
+
+
+def herbs_view(request):
+    try:
+        herbs_category = Category.objects.get(name__iexact="herbs")
+        herbs_products = Product.objects.filter(category=herbs_category)
+    except Category.DoesNotExist:
+        herbs_products = []
+
+    return render(request, 'herbs.html', {'products': herbs_products})
+
+
+def accessories_view(request):
+    try:
+        accessories_category = Category.objects.get(name__iexact="Garden Accessories")
+        accessories_products = Product.objects.filter(category=accessories_category)
+    except Category.DoesNotExist:
+        accessories_products = []
+
+    return render(request, 'accessories.html', {'products': accessories_products})
