@@ -27,7 +27,7 @@ def signin(request):
         # Validate required fields
         if not username or not password:
             messages.error(request, "Both Username and Password are required!")
-            return redirect('login')
+            return redirect('signin')
 
         # Authenticate
         user = authenticate(request, username=username, password=password)
@@ -42,6 +42,7 @@ def signin(request):
     return render(request,'login.html')
         
 def logout(request):
+    logout(request)
     return redirect('signin')
 
 def register(request):
