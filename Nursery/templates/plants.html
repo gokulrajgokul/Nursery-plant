@@ -6,28 +6,13 @@
     <h2>Our Plant Collection</h2>
 
     <div class="filter-buttons">
-        <a href="/products/" class="filter-btn">All Plants</a>
+         
         <a href="/flowers" class="filter-btn">Flowers</a>
         <a href="/trees" class="filter-btn">Trees</a>
         <a href="/herbs" class="filter-btn">Herbs</a>
         <a href="/accessories" class="filter-btn">Garden Accessories</a>
     </div>
-
-    <div class="plants-grid mt-4">
-        {% for product in products %}
-            <div class="plant-card">
-                {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                {% endif %}
-                <h4>{{ product.name }}</h4>
-                <p>{{ product.description }}</p>
-                <p><strong>Price:</strong> ₹{{ product.price }}</p>
-                <p><strong>Stock:</strong> {{ product.stock }}</p>
-            </div>
-        {% empty %}
-            <p>No products found in this category.</p>
-        {% endfor %}
-    </div>
+ 
 
 </section>
 {% endblock %}
