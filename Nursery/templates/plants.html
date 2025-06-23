@@ -1,18 +1,121 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block style %}
+ <style>
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #7ee19a 0%, #ffffff 100%);
+  margin: 0;
+  padding: 0;
+}
+
+.section-title {
+  color: #2e7d32;
+  font-size: 2.5rem;
+}
+
+.section-subtext {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.plant-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.plant-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 128, 0, 0.15);
+}
+
+.plant-img {
+  border-radius: 10px;
+  max-height: 180px;
+  object-fit: cover;
+}
+
+.plant-title {
+  color: #1b5e20;
+  font-weight: 600;
+}
+
+.plant-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #2e7d32;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.plant-btn:hover {
+  background-color: #1b5e20;
+}
+</style>
+
+{% endblock style %}
 
 {% block content %}
 <section id="plants" class="plants-section">
-    <h2>Our Plant Collection</h2>
-
-    <div class="filter-buttons">
-         
-        <a href="/flowers" class="filter-btn">Flowers</a>
-        <a href="/trees" class="filter-btn">Trees</a>
-        <a href="/herbs" class="filter-btn">Herbs</a>
-        <a href="/accessories" class="filter-btn">Garden Accessories</a>
+<div class="plant-section container py-5">
+  <h2 class="section-title text-center fw-bold mb-4">Explore Our Collection</h2>
+  <p class="section-subtext mx-auto mb-5" style="max-width: 850px;">
+    Discover a beautiful and useful variety of plants and garden essentials to transform any space.
+    Whether you're designing a cozy balcony, a vibrant terrace, or a lush backyard garden, we've got you covered.
+    From colorful flowers and shade-giving trees to aromatic herbs and stylish accessories—everything is at your fingertips.
+    Let your green journey begin with trusted selections curated for both beginners and plant lovers alike.</p>
+  <div class="row g-4">
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="plant-card text-center p-3">
+        <img src="{% static 'images/bg1.png' %}" class="plant-img img-fluid" alt="Flower Plants">
+        <h5 class="plant-title mt-3">Flowers</h5>
+        <p>Brighten your space with vibrant and fragrant flower plants perfect for every season.
+        From sun-loving marigolds to shade-friendly lilies, our flowers bring life and color to any garden.
+        Choose from a wide variety of seasonal and perennial blooms to enhance your home, balcony, or office.</p>
+        <a href="/flowers" class="plant-btn" aria-label="Browse Flower Plants">Explore</a>
+      </div>
     </div>
- 
+
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="plant-card text-center p-3">
+        <img src="{% static 'images/tree.webp' %}" class="plant-img img-fluid" alt="Trees">
+        <h5 class="plant-title mt-3">Trees</h5>
+        <p>Bring nature closer with our collection of ornamental, shade-giving, and fruit-bearing trees.
+        Perfect for gardens, walkways, or large pots, these trees add structure, beauty, and purpose.
+        From elegant ficus to fruitful guava and neem, grow a greener and healthier environment.</p>
+        <a href="/trees" class="plant-btn" aria-label="Browse Trees">Explore</a>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="plant-card text-center p-3">
+        <img src="{% static 'images/herbs.jpg' %}" class="plant-img img-fluid" alt="Herbs">
+        <h5 class="plant-title mt-3">Herbs</h5>
+        <p>Add flavor and wellness to your home with our fresh, aromatic herb plants.
+        From tulsi and mint to rosemary and basil, these easy-to-grow herbs thrive in small spaces.
+        Ideal for kitchens, balconies, or windowsills, they offer both beauty and health benefits.<p>
+        <a href="/herbs" class="plant-btn" aria-label="Browse Herbs">Explore</a>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="plant-card text-center p-3">
+        <img src="{% static 'images/acc.jpg' %}" class="plant-img img-fluid" alt="Garden Accessories">
+        <h5 class="plant-title mt-3">Garden Accessories</h5>
+        <p>Complete your garden setup with our range of stylish and functional accessories.
+        From designer pots and watering cans to gloves, soil mixes, and garden décor, we’ve got it all.
+        Whether you're a beginner or a seasoned gardener, our tools make planting easier and more enjoyable.</p>
+        <a href="/accessories" class="plant-btn" aria-label="Browse Garden Accessories">Explore</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 </section>
 {% endblock %}
