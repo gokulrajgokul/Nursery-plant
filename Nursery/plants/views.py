@@ -13,6 +13,9 @@ def home(request):
 def plants(request):
     return render(request,'plants.html')
 
+def plant(request):
+    return render(request,'plant.html')
+
 def about(request):
     return render(request,'about.html')
 
