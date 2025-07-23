@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
 from django.contrib import messages
-from .models import Category, Product
+from .models import Category, Product_1,Product_2
 
 def frontpage(request):
     return render(request,'frontpage.html')
@@ -88,38 +88,77 @@ def register(request):
 
     return render(request,'register.html')
 
-def flowers_view(request):
+def flowers1_view(request):
     try:
         flower_category = Category.objects.get(name__iexact="Flowers")  #  not case-sensitive
-        flower_products = Product.objects.filter(category=flower_category)
+        flower1_products = Product_1.objects.filter(category=flower_category)
     except Category.DoesNotExist:
-        flower_products = []
+        flower1_products = []
 
-    return render(request, 'flowers.html', {'products': flower_products})
+    return render(request, 'flowers1.html', {'products': flower1_products})
 
-def trees_view(request):
+def trees1_view(request):
     try:
         tree_category = Category.objects.get(name__iexact="trees")
-        tree_products = Product.objects.filter(category=tree_category)
+        tree1_products = Product_1.objects.filter(category=tree_category)
     except Category.DoesNotExist:
-        tree_products = []
+        tree1_products = []
 
-    return render(request, 'trees.html', {'products': tree_products})
+    return render(request, 'trees1.html', {'products': tree1_products})
 
-def herbs_view(request):
+def herbs1_view(request):
     try:
         herbs_category = Category.objects.get(name__iexact="herbs")
-        herbs_products = Product.objects.filter(category=herbs_category)
+        herbs1_products = Product_1.objects.filter(category=herbs_category)
     except Category.DoesNotExist:
-        herbs_products = []
+        herbs1_products = []
 
-    return render(request, 'herbs.html', {'products': herbs_products})
+    return render(request, 'herbs1.html', {'products': herbs1_products})
 
-def accessories_view(request):
+def accessories1_view(request):
+
     try:
         accessories_category = Category.objects.get(name__iexact="Garden Accessories")
-        accessories_products = Product.objects.filter(category=accessories_category)
+        accessories1_products = Product_1.objects.filter(category=accessories_category)
     except Category.DoesNotExist:
-        accessories_products = []
+        accessories1_products = []
 
-    return render(request, 'accessories.html', {'products': accessories_products})
+    return render(request, 'accessories1.html', {'products': accessories1_products})
+
+
+
+def flowers2_view(request):
+    try:
+        flower_category = Category.objects.get(name__iexact="Flowers")  #  not case-sensitive
+        flower2_products = Product_2.objects.filter(category=flower_category)
+    except Category.DoesNotExist:
+        flower2_products = []
+
+    return render(request, 'flowers2.html', {'products': flower2_products})
+
+def trees2_view(request):
+    try:
+        tree_category = Category.objects.get(name__iexact="trees")
+        tree2_products = Product_2.objects.filter(category=tree_category)
+    except Category.DoesNotExist:
+        tree2_products = []
+
+    return render(request, 'trees2.html', {'products': tree2_products})
+
+def herbs2_view(request):
+    try:
+        herbs_category = Category.objects.get(name__iexact="herbs")
+        herbs2_products = Product_2.objects.filter(category=herbs_category)
+    except Category.DoesNotExist:
+        herbs2_products = []
+
+    return render(request, 'herbs2.html', {'products': herbs2_products})
+
+def accessories2_view(request):
+    try:
+        accessories_category = Category.objects.get(name__iexact="Garden Accessories")
+        accessories2_products = Product_1.objects.filter(category=accessories_category)
+    except Category.DoesNotExist:
+        accessories2_products = []
+
+    return render(request, 'accessories2.html', {'products': accessories2_products})
