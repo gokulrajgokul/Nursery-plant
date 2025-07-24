@@ -13,6 +13,9 @@ def home(request):
 def plants(request):
     return render(request,'plants.html')
 
+def plants2(request):
+    return render(request,'plants2.html')
+
 def plant(request):
     return render(request,'plant.html')
 
@@ -21,6 +24,9 @@ def about(request):
 
 def contact(request):
     return render(request,'contact.html')
+
+def shop(request):
+    return render(request,'shop.html')
 
 def signin(request):
     if request.method == 'POST':
@@ -157,7 +163,7 @@ def herbs2_view(request):
 def accessories2_view(request):
     try:
         accessories_category = Category.objects.get(name__iexact="Garden Accessories")
-        accessories2_products = Product_1.objects.filter(category=accessories_category)
+        accessories2_products = Product_2.objects.filter(category=accessories_category)
     except Category.DoesNotExist:
         accessories2_products = []
 

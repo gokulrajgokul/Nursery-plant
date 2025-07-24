@@ -26,11 +26,16 @@
                 <a href="{% url 'home' %}">Home</a>
 
                 {% if user.is_authenticated %}
-                <a href="{% url 'plants' %}">Plants</a>
+                <a href="{% url 'shop' %}">shop</a>
                 
                 <a href="{% url 'about' %}">About</a>
                 <a href="{% url 'contact' %}">Contact</a>
                 <a href="{% url 'signout' %}">Logout</a>
+                 <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+
                 {% else %}
                 
                 <a href="{% url 'about' %}">About</a>
@@ -42,6 +47,23 @@
             </div>
         </nav>
     </header>
+     <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Shopping Cart</h3>
+                <span class="close-cart" onclick="toggleCart()">&times;</span>
+            </div>
+            <div id="cartItems" class="cart-items">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <strong>Total: ₹<span id="cartTotal">0</span></strong>
+                </div>
+                <button class="checkout-btn" onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+    </div>
     {% block content %}
 
     {% endblock %}

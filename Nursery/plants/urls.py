@@ -6,6 +6,7 @@ urlpatterns=[
     path('frontpage', views.frontpage, name='frontpage'),
     path('home', views.home, name='home'),
     path('plants', views.plants, name='plants'),
+    path('plants2', views.plants2, name='plants2'),
     path('plant', views.plant, name='plant'),
     path('signin', views.signin, name='signin'),
     path('register', views.register, name='register'),
@@ -16,6 +17,7 @@ urlpatterns=[
     path('trees1/', views.trees1_view, name='trees1'),
     path('herbs1/', views.herbs1_view, name='herbs1'),
     path('accessories1/', views.accessories1_view, name='accessories1'),
+    path('shop', views.shop, name='shop'),
 
 
 
